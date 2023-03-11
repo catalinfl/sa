@@ -4,10 +4,14 @@ import { Person } from "../models/Person"
 export const getPerson = async (req: Request, res: Response) => {
     try {
         const getPerson = await Person.findById({ _id: req.params.id })
-        res.status(200).json(getPerson)
+        res
+        .status(200)
+        .json(getPerson)
     }
     catch(err) {
-        res.status(400).json(err)
+        res
+        .status(400)
+        .json(err)
     }
 }
 
