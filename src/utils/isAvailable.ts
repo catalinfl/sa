@@ -10,7 +10,7 @@ export const isAvailable = (req: Request, res: Response, next: NextFunction) => 
         }
         else {
             res
-            .header({ 'content-type': "application/json", "content-length": "20" })
+            .header({ 'content-type': "application/json" })
             .status(403)
             .send(`Error: Available function is ${available}`)
             .end()

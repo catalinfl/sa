@@ -14,7 +14,10 @@ export const getPerson = async (req: Request, res: Response) => {
 export const getPeople = async (req: Request, res: Response) => {
     try {
         const getPeople = await Person.find()
-        res.status(200).json(getPeople)
+        res
+        .status(200)
+        .header({ "content-type": "application/json"  })
+        .json(getPeople)
     }
     catch(err) {
         res.status(400).json(err);

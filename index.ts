@@ -3,6 +3,7 @@ import mongoose, { Error } from "mongoose"
 import dotenv from "dotenv"
 import cors from "cors"
 import personRoute from "./src/routes/person"
+import personQueryRoute from './src/routes/querySearch'
 
 const app = express();
 dotenv.config()
@@ -13,7 +14,8 @@ const MONGOPORT = process.env.PORT as string;
 
 app.use(cors());
 app.use(express.json());
-app.use('/p', personRoute);
+app.use('/', personRoute);
+app.use('/', personQueryRoute)
 
 
 mongoose.connect(MONGOURL)
